@@ -32,6 +32,29 @@ The Ingest Events App is designed to handle and process events. It provides an A
 
 
 ## Usage
+      
+      DB Migration:
+      Create a collection named "rules" in mongodb and insert below document.
+      {
+      	"_id" : ObjectId("66b2038202f51e6e4af96496"),
+      	"rule_type" : "ingest",
+      	"rule_set" : [
+      		{
+      			"desc" : "user first nft purchase",
+      			"condition" : "verb == 'buy' and noun == 'nft'",
+      			"action" : "check_first_nft_purchase"
+      		},
+      		{
+      			"desc" : "volume of nft purchased in last hour",
+      			"condition" : "verb == 'buy' and noun == 'nft'",
+      			"action" : "check_nfts_volume"
+      		},
+      		{
+      			"desc" : "nft not sold after 7 days of post",
+      			"condition" : "verb == 'post' and noun == 'nft'",
+      			"action" : "check_nfts_sold"
+      		}]
+      }
         python3 main.py
 
         curl --location 'http://localhost:8080/api/v1/ingest-events' \
