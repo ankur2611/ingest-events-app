@@ -34,7 +34,7 @@ The Ingest Events App is designed to handle and process events. It provides an A
 ## Usage
       
       DB Migration:
-      Create a collection named "rules" in mongodb and insert below document.
+      Create a collection named "rules" under database "db_virtualness" in mongodb and insert below document.
       {
       	"_id" : ObjectId("66b2038202f51e6e4af96496"),
       	"rule_type" : "ingest",
@@ -55,6 +55,7 @@ The Ingest Events App is designed to handle and process events. It provides an A
       			"action" : "check_nfts_sold"
       		}]
       }
+      All events will be inserted in "events" collection
         python3 main.py
 
         curl --location 'http://localhost:8080/api/v1/ingest-events' \
