@@ -57,6 +57,7 @@ To run the tests, use the following command:
 
         python3 -m unittest discover -s tests
 
+## Folder Structure
 
 ingest-events-app/
 ├── app/
